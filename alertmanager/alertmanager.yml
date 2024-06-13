@@ -13,11 +13,11 @@ receivers:
   email_configs:
   - send_resolved: true
     to: omkarsathe.pers@gmail.com
-    from: omkarsathe.pers@gmail.com
+    from: bluebricks.alerts@gmail.com
     smarthost: smtp.gmail.com:587
-    auth_username: "omkarsathe.pers@gmail.com"
-    auth_identity: "omkarsathe.pers@gmail.com"
-    auth_password: "xbuq kkmq jkux cuhh"
+    auth_username: "bluebricks.alerts@gmail.com"
+    auth_identity: "bluebricks.alerts@gmail.com"
+    auth_password: "bwgs lzsb qbua yecb"
 
 inhibit_rules:
   - source_match:
