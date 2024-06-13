@@ -1,0 +1,27 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 3h
+  receiver: email-me
+
+receivers:
+- name: email-me
+  email_configs:
+  - send_resolved: true
+    to: omkarsathe.pers@gmail.com
+    from: omkarsathe.pers@gmail.com
+    smarthost: smtp.gmail.com:587
+    auth_username: "omkarsathe.pers@gmail.com"
+    auth_identity: "omkarsathe.pers@gmail.com"
+    auth_password: "xbuq kkmq jkux cuhh"
+
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']

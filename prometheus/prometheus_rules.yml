@@ -1,0 +1,31 @@
+groups:
+- name: alert_rules
+  rules:
+  - alert: "Job has Failed"
+    expr: up == 0
+    for: 10s
+    labels:
+      severity: critical
+    annotations:
+      summary: "Job(s) on {{ $labels.instance }} has failed"
+      description: "The instance [{{ $labels.instance }}] for job [{{ $labels.job }}] is currently unreachable."
+
+  - alert: ContainerStopped
+    expr: engine_daemon_container_states_containers{state="stopped"}!=0
+    for: 10s
+    labels:
+      severity: critical
+    annotations:
+      summary: "Container(s) on [{{ $labels.instance }}] are stopped"
+      description: "One or more containers have stopped."
+
+- name: application_health_alerts
+  rules:
+  - alert: "Application is Down"
+    expr: probe_success == 0
+    for: 10s
+    labels:
+      severity: critical
+    annotations:
+      summary: "Application health check failed"
+      description: "The application health check for {{ $labels.instance }}  has failed, indicating that the application is down."
