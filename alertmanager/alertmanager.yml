@@ -12,7 +12,7 @@ receivers:
 - name: email-me
   email_configs:
   - send_resolved: true
-    to: omkarsathe.pers@gmail.com
+    to: omkarsathe.pers@gmail.com,sanjaymenaria03@gmail.com
     from: bluebricks.alerts@gmail.com
     smarthost: smtp.gmail.com:587
     auth_username: "bluebricks.alerts@gmail.com"
